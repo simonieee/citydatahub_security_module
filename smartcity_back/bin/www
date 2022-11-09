@@ -6,9 +6,16 @@
 
 var app = require('../app');
 var debug = require('debug')('aasjwt:server');
-var http = require('http');
+var http = require('https');
+var fs = require("fs");
 var port = require('../server_conf.json').serverport;
 
+let options = {
+  key: fs.readFileSync("./cert/localhost.key"),
+  cert: fs.readFileSync("./cert/localhost.crt"),
+  requestCert: false,
+  rejectUnauthorized: false,
+};
 /**
  * Get port from environment and store in Express.
  */
@@ -20,7 +27,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+ var server = http.createServer(options, app);
 
 /**
  * Listen on provided port, on all network interfaces.

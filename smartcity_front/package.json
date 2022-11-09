@@ -24,10 +24,11 @@
     "react-window-opener": "0.0.7"
   },
   "scripts": {
-    "start": "export PORT=30001 && react-scripts start",
+    "start": "export PORT=30004 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:https": "export HTTPS=true && export PORT=30004 && NODE_ENV=production && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +45,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:30000",
+  "proxy": "https://localhost:30003",
   "secure": false
 }

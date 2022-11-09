@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "setup:https": "openssl genrsa -out ./cert/localhost.key 2048 && openssl req -new -x509 -key ./cert/localhost.key -out ./cert/localhost.crt -days 3650 -subj /CN=localhost"
   },
   "dependencies": {
     "@poziworld/oauth2orize": "^1.11.1",
